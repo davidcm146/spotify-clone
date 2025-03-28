@@ -37,7 +37,7 @@ const AuthModal = () => {
             brandAccent: '#22c55e',
           }
         }
-      }}} />
+      }}} redirectTo={`${process.env.NEXT_PUBLIC_SITE_URL}/auth/callback`} />
     </Modal>
   )
 }
