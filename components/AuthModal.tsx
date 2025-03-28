@@ -38,7 +38,6 @@ const AuthModal = () => {
         view={mode === "signup" ? "sign_up" : "sign_in"}
         magicLink
         providers={["google"]}
-        redirectTo={`${process.env.NEXT_PUBLIC_SITE_URL}/auth/callback`}
         theme="dark"
         appearance={{
           theme: ThemeSupa,
