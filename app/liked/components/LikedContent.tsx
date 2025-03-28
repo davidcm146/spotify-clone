@@ -2,10 +2,10 @@
 
 import LikeButton from "@/components/LikeButton";
 import MediaItem from "@/components/MediaItem";
+import useAuthModal from "@/hooks/useAuthModal";
 import useOnPlay from "@/hooks/useOnPlay";
 import { useUser } from "@/hooks/useUser";
 import { Song } from "@/types";
-import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 interface LikedContentProps {
@@ -14,14 +14,14 @@ interface LikedContentProps {
 
 const LikedContent: React.FC<LikedContentProps> = ({ songs }) => {
   const onPlay = useOnPlay(songs);
-  const router = useRouter();
+  const authModal = useAuthModal();
   const { isLoading, user } = useUser();
 
   useEffect(() => {
     if (!isLoading && !user) {
-        router.replace('/');
+      authModal.onOpen();
     }
-  }, [isLoading, user, router]);
+  }, [isLoading, user]);
 
   if (songs.length === 0) {
     return (
