@@ -23,7 +23,7 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
   const authModal = useAuthModal();
   const supabaseClient = useSupabaseClient();
   const player = usePlayer();
-  const { user, subscription } = useUser();
+  const { user } = useUser();
 
   const hanndleLogout = async () => {
     const { error } = await supabaseClient.auth.signOut();
